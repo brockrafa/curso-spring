@@ -1,8 +1,25 @@
 package com.estudos.springweb.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "person")
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-    public String name;
+
+    @Column(name = "first_name", nullable = false, length = 80)
+    public String firstName;
+
+
+    @Column(name = "last_name", nullable = false)
+    public String lastName;
+
+    @Column
+    public String address;
+
+    @Column
     public String genre;
 
     public Person() {
@@ -10,7 +27,7 @@ public class Person {
 
     public Person(Long id, String name, String genre) {
         this.id = id;
-        this.name = name;
+        this.firstName = name;
         this.genre = genre;
     }
 
@@ -22,12 +39,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getGenre() {
@@ -36,5 +53,22 @@ public class Person {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

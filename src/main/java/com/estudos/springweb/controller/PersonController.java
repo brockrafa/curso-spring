@@ -30,6 +30,11 @@ public class PersonController {
         return this.service.create(person);
     }
 
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Long id){
+        this.service.delete(id);
+    }
+
 
 
 }
